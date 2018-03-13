@@ -1,0 +1,983 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MovieNightrModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actors">
+    <Key>
+      <PropertyRef Name="ActorId" />
+    </Key>
+    <Property Name="ActorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Directors">
+    <Key>
+      <PropertyRef Name="DirectorId" />
+    </Key>
+    <Property Name="DirectorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventMovies">
+    <Key>
+      <PropertyRef Name="EventMovieId" />
+    </Key>
+    <Property Name="EventMovieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="WasWatched" Type="bit" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventLeaderUserId" Type="int" Nullable="false" />
+    <Property Name="EventDate" Type="date" Nullable="false" />
+    <Property Name="EventTime" Type="time" Precision="7" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="FilterSetId" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventUsers">
+    <Key>
+      <PropertyRef Name="EventUserId" />
+    </Key>
+    <Property Name="EventUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="EventUserStatusId" Type="int" Nullable="false" />
+    <Property Name="LastActionOn" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventUserStatus">
+    <Key>
+      <PropertyRef Name="EventUserStatusId" />
+    </Key>
+    <Property Name="EventUserStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Filters">
+    <Key>
+      <PropertyRef Name="FilterId" />
+    </Key>
+    <Property Name="FilterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FilterSetFilters">
+    <Key>
+      <PropertyRef Name="FilterSetFilterId" />
+    </Key>
+    <Property Name="FilterSetFilterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FilterSetId" Type="int" Nullable="false" />
+    <Property Name="FilterId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FilterSets">
+    <Key>
+      <PropertyRef Name="FilterSetId" />
+    </Key>
+    <Property Name="FilterSetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Friendship">
+    <Key>
+      <PropertyRef Name="FriendshipId" />
+    </Key>
+    <Property Name="FriendshipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="FriendId" Type="int" Nullable="false" />
+    <Property Name="FriendshipStatusId" Type="int" Nullable="false" />
+    <Property Name="LastActionUserId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FriendshipStatus">
+    <Key>
+      <PropertyRef Name="FriendshipStatusId" />
+    </Key>
+    <Property Name="FriendshipStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genres">
+    <Key>
+      <PropertyRef Name="GenreId" />
+    </Key>
+    <Property Name="GenreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieActors">
+    <Key>
+      <PropertyRef Name="MovieActorId" />
+    </Key>
+    <Property Name="MovieActorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="ActorId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieDirectors">
+    <Key>
+      <PropertyRef Name="MovieDirectorId" />
+    </Key>
+    <Property Name="MovieDirectorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="DirectorId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieGenres">
+    <Key>
+      <PropertyRef Name="MovieGenreId" />
+    </Key>
+    <Property Name="MovieGenreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="GenreId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieLanguages">
+    <Key>
+      <PropertyRef Name="MovieLanguageId" />
+    </Key>
+    <Property Name="MovieLanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieLists">
+    <Key>
+      <PropertyRef Name="MovieListId" />
+    </Key>
+    <Property Name="MovieListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="Rank" Type="int" />
+    <Property Name="MovieListStatusId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieListStatus">
+    <Key>
+      <PropertyRef Name="MovieListStatusId" />
+    </Key>
+    <Property Name="MovieListStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieProducers">
+    <Key>
+      <PropertyRef Name="MovieProducerId" />
+    </Key>
+    <Property Name="MovieProducerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="ProducerId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Movies">
+    <Key>
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="MovieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Rating" Type="nvarchar" MaxLength="100" />
+    <Property Name="ReleaseYear" Type="int" Nullable="false" />
+    <Property Name="ReleaseNumber" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsTV" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieTags">
+    <Key>
+      <PropertyRef Name="MovieTagId" />
+    </Key>
+    <Property Name="MovieTagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="TagId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MovieWriters">
+    <Key>
+      <PropertyRef Name="MovieWriterId" />
+    </Key>
+    <Property Name="MovieWriterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="WriterId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producers">
+    <Key>
+      <PropertyRef Name="ProducerId" />
+    </Key>
+    <Property Name="ProducerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Recommendations">
+    <Key>
+      <PropertyRef Name="RecommendationId" />
+    </Key>
+    <Property Name="RecommendationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromUserId" Type="int" Nullable="false" />
+    <Property Name="ToUserId" Type="int" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="RecommendationDate" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="1000" />
+    <Property Name="HasSeen" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tags">
+    <Key>
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Name="TagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserStatusId" Type="int" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Salt" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserStatus">
+    <Key>
+      <PropertyRef Name="UserStatusId" />
+    </Key>
+    <Property Name="UserStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Writers">
+    <Key>
+      <PropertyRef Name="WriterId" />
+    </Key>
+    <Property Name="WriterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__EventMovi__Event__5AB9788F">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="EventMovies" Type="Self.EventMovies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="EventMovies">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventMovi__Movie__5BAD9CC8">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="EventMovies" Type="Self.EventMovies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="EventMovies">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Events__EventLea__5CA1C101">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="EventLeaderUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Events__FilterSe__5D95E53A">
+    <End Role="FilterSets" Type="Self.FilterSets" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FilterSets">
+        <PropertyRef Name="FilterSetId" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="FilterSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventUser__Event__5E8A0973">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="EventUsers" Type="Self.EventUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="EventId" />
+      </Principal>
+      <Dependent Role="EventUsers">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventUser__Event__5F7E2DAC">
+    <End Role="EventUserStatus" Type="Self.EventUserStatus" Multiplicity="1" />
+    <End Role="EventUsers" Type="Self.EventUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventUserStatus">
+        <PropertyRef Name="EventUserStatusId" />
+      </Principal>
+      <Dependent Role="EventUsers">
+        <PropertyRef Name="EventUserStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventUser__UserI__607251E5">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="EventUsers" Type="Self.EventUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="EventUsers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FilterSet__Filte__6166761E">
+    <End Role="Filters" Type="Self.Filters" Multiplicity="1" />
+    <End Role="FilterSetFilters" Type="Self.FilterSetFilters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filters">
+        <PropertyRef Name="FilterId" />
+      </Principal>
+      <Dependent Role="FilterSetFilters">
+        <PropertyRef Name="FilterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FilterSet__Filte__625A9A57">
+    <End Role="FilterSets" Type="Self.FilterSets" Multiplicity="1" />
+    <End Role="FilterSetFilters" Type="Self.FilterSetFilters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FilterSets">
+        <PropertyRef Name="FilterSetId" />
+      </Principal>
+      <Dependent Role="FilterSetFilters">
+        <PropertyRef Name="FilterSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FilterSet__UserI__634EBE90">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="FilterSets" Type="Self.FilterSets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="FilterSets">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Friendshi__Frien__6442E2C9">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Friendship" Type="Self.Friendship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Friendship">
+        <PropertyRef Name="FriendId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Friendshi__Frien__65370702">
+    <End Role="FriendshipStatus" Type="Self.FriendshipStatus" Multiplicity="1" />
+    <End Role="Friendship" Type="Self.Friendship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FriendshipStatus">
+        <PropertyRef Name="FriendshipStatusId" />
+      </Principal>
+      <Dependent Role="Friendship">
+        <PropertyRef Name="FriendshipStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Friendshi__LastA__662B2B3B">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Friendship" Type="Self.Friendship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Friendship">
+        <PropertyRef Name="LastActionUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Friendshi__UserI__671F4F74">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Friendship" Type="Self.Friendship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Friendship">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieActo__Actor__681373AD">
+    <End Role="Actors" Type="Self.Actors" Multiplicity="1" />
+    <End Role="MovieActors" Type="Self.MovieActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actors">
+        <PropertyRef Name="ActorId" />
+      </Principal>
+      <Dependent Role="MovieActors">
+        <PropertyRef Name="ActorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieActo__Movie__690797E6">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="MovieActors" Type="Self.MovieActors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="MovieActors">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieDire__Direc__69FBBC1F">
+    <End Role="Directors" Type="Self.Directors" Multiplicity="1" />
+    <End Role="MovieDirectors" Type="Self.MovieDirectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Directors">
+        <PropertyRef Name="DirectorId" />
+      </Principal>
+      <Dependent Role="MovieDirectors">
+        <PropertyRef Name="DirectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieDire__Movie__6AEFE058">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="MovieDirectors" Type="Self.MovieDirectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="MovieDirectors">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieGenr__Genre__6BE40491">
+    <End Role="Genres" Type="Self.Genres" Multiplicity="1" />
+    <End Role="MovieGenres" Type="Self.MovieGenres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genres">
+        <PropertyRef Name="GenreId" />
+      </Principal>
+      <Dependent Role="MovieGenres">
+        <PropertyRef Name="GenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieGenr__Movie__6CD828CA">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="MovieGenres" Type="Self.MovieGenres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="MovieGenres">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieLang__Langu__6DCC4D03">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="MovieLanguages" Type="Self.MovieLanguages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="LanguageId" />
+      </Principal>
+      <Dependent Role="MovieLanguages">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieLang__Movie__6EC0713C">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="MovieLanguages" Type="Self.MovieLanguages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="MovieLanguages">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieList__Movie__6FB49575">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="MovieLists" Type="Self.MovieLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="MovieLists">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieList__Movie__70A8B9AE">
+    <End Role="MovieListStatus" Type="Self.MovieListStatus" Multiplicity="1" />
+    <End Role="MovieLists" Type="Self.MovieLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MovieListStatus">
+        <PropertyRef Name="MovieListStatusId" />
+      </Principal>
+      <Dependent Role="MovieLists">
+        <PropertyRef Name="MovieListStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieList__UserI__719CDDE7">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="MovieLists" Type="Self.MovieLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="MovieLists">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieProd__Movie__72910220">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="MovieProducers" Type="Self.MovieProducers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="MovieProducers">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieProd__Produ__73852659">
+    <End Role="Producers" Type="Self.Producers" Multiplicity="1" />
+    <End Role="MovieProducers" Type="Self.MovieProducers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producers">
+        <PropertyRef Name="ProducerId" />
+      </Principal>
+      <Dependent Role="MovieProducers">
+        <PropertyRef Name="ProducerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieTags__Movie__74794A92">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="MovieTags" Type="Self.MovieTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="MovieTags">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieTags__TagId__756D6ECB">
+    <End Role="Tags" Type="Self.Tags" Multiplicity="1" />
+    <End Role="MovieTags" Type="Self.MovieTags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tags">
+        <PropertyRef Name="TagId" />
+      </Principal>
+      <Dependent Role="MovieTags">
+        <PropertyRef Name="TagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieWrit__Movie__76619304">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="MovieWriters" Type="Self.MovieWriters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="MovieWriters">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieWrit__Write__7755B73D">
+    <End Role="Writers" Type="Self.Writers" Multiplicity="1" />
+    <End Role="MovieWriters" Type="Self.MovieWriters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Writers">
+        <PropertyRef Name="WriterId" />
+      </Principal>
+      <Dependent Role="MovieWriters">
+        <PropertyRef Name="WriterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recommend__FromU__7849DB76">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Recommendations" Type="Self.Recommendations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Recommendations">
+        <PropertyRef Name="FromUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recommend__Movie__793DFFAF">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+    <End Role="Recommendations" Type="Self.Recommendations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="Recommendations">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recommend__ToUse__7A3223E8">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Recommendations" Type="Self.Recommendations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Recommendations">
+        <PropertyRef Name="ToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__UserStatu__7B264821">
+    <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserStatus">
+        <PropertyRef Name="UserStatusId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MovieNightrModelStoreContainer">
+    <EntitySet Name="Actors" EntityType="Self.Actors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Directors" EntityType="Self.Directors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventMovies" EntityType="Self.EventMovies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventUsers" EntityType="Self.EventUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventUserStatus" EntityType="Self.EventUserStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Filters" EntityType="Self.Filters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FilterSetFilters" EntityType="Self.FilterSetFilters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FilterSets" EntityType="Self.FilterSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Friendship" EntityType="Self.Friendship" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FriendshipStatus" EntityType="Self.FriendshipStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieActors" EntityType="Self.MovieActors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieDirectors" EntityType="Self.MovieDirectors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieGenres" EntityType="Self.MovieGenres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieLanguages" EntityType="Self.MovieLanguages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieLists" EntityType="Self.MovieLists" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieListStatus" EntityType="Self.MovieListStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieProducers" EntityType="Self.MovieProducers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieTags" EntityType="Self.MovieTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieWriters" EntityType="Self.MovieWriters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producers" EntityType="Self.Producers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recommendations" EntityType="Self.Recommendations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Writers" EntityType="Self.Writers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EventMovi__Event__5AB9788F" Association="Self.FK__EventMovi__Event__5AB9788F">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventMovies" EntitySet="EventMovies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventMovi__Movie__5BAD9CC8" Association="Self.FK__EventMovi__Movie__5BAD9CC8">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="EventMovies" EntitySet="EventMovies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Events__EventLea__5CA1C101" Association="Self.FK__Events__EventLea__5CA1C101">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Events__FilterSe__5D95E53A" Association="Self.FK__Events__FilterSe__5D95E53A">
+      <End Role="FilterSets" EntitySet="FilterSets" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventUser__Event__5E8A0973" Association="Self.FK__EventUser__Event__5E8A0973">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventUsers" EntitySet="EventUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventUser__Event__5F7E2DAC" Association="Self.FK__EventUser__Event__5F7E2DAC">
+      <End Role="EventUserStatus" EntitySet="EventUserStatus" />
+      <End Role="EventUsers" EntitySet="EventUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventUser__UserI__607251E5" Association="Self.FK__EventUser__UserI__607251E5">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="EventUsers" EntitySet="EventUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FilterSet__Filte__6166761E" Association="Self.FK__FilterSet__Filte__6166761E">
+      <End Role="Filters" EntitySet="Filters" />
+      <End Role="FilterSetFilters" EntitySet="FilterSetFilters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FilterSet__Filte__625A9A57" Association="Self.FK__FilterSet__Filte__625A9A57">
+      <End Role="FilterSets" EntitySet="FilterSets" />
+      <End Role="FilterSetFilters" EntitySet="FilterSetFilters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FilterSet__UserI__634EBE90" Association="Self.FK__FilterSet__UserI__634EBE90">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="FilterSets" EntitySet="FilterSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Friendshi__Frien__6442E2C9" Association="Self.FK__Friendshi__Frien__6442E2C9">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Friendship" EntitySet="Friendship" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Friendshi__Frien__65370702" Association="Self.FK__Friendshi__Frien__65370702">
+      <End Role="FriendshipStatus" EntitySet="FriendshipStatus" />
+      <End Role="Friendship" EntitySet="Friendship" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Friendshi__LastA__662B2B3B" Association="Self.FK__Friendshi__LastA__662B2B3B">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Friendship" EntitySet="Friendship" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Friendshi__UserI__671F4F74" Association="Self.FK__Friendshi__UserI__671F4F74">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Friendship" EntitySet="Friendship" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieActo__Actor__681373AD" Association="Self.FK__MovieActo__Actor__681373AD">
+      <End Role="Actors" EntitySet="Actors" />
+      <End Role="MovieActors" EntitySet="MovieActors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieActo__Movie__690797E6" Association="Self.FK__MovieActo__Movie__690797E6">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieActors" EntitySet="MovieActors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieDire__Direc__69FBBC1F" Association="Self.FK__MovieDire__Direc__69FBBC1F">
+      <End Role="Directors" EntitySet="Directors" />
+      <End Role="MovieDirectors" EntitySet="MovieDirectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieDire__Movie__6AEFE058" Association="Self.FK__MovieDire__Movie__6AEFE058">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieDirectors" EntitySet="MovieDirectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieGenr__Genre__6BE40491" Association="Self.FK__MovieGenr__Genre__6BE40491">
+      <End Role="Genres" EntitySet="Genres" />
+      <End Role="MovieGenres" EntitySet="MovieGenres" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieGenr__Movie__6CD828CA" Association="Self.FK__MovieGenr__Movie__6CD828CA">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieGenres" EntitySet="MovieGenres" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieLang__Langu__6DCC4D03" Association="Self.FK__MovieLang__Langu__6DCC4D03">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="MovieLanguages" EntitySet="MovieLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieLang__Movie__6EC0713C" Association="Self.FK__MovieLang__Movie__6EC0713C">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieLanguages" EntitySet="MovieLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieList__Movie__6FB49575" Association="Self.FK__MovieList__Movie__6FB49575">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieLists" EntitySet="MovieLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieList__Movie__70A8B9AE" Association="Self.FK__MovieList__Movie__70A8B9AE">
+      <End Role="MovieListStatus" EntitySet="MovieListStatus" />
+      <End Role="MovieLists" EntitySet="MovieLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieList__UserI__719CDDE7" Association="Self.FK__MovieList__UserI__719CDDE7">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MovieLists" EntitySet="MovieLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieProd__Movie__72910220" Association="Self.FK__MovieProd__Movie__72910220">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieProducers" EntitySet="MovieProducers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieProd__Produ__73852659" Association="Self.FK__MovieProd__Produ__73852659">
+      <End Role="Producers" EntitySet="Producers" />
+      <End Role="MovieProducers" EntitySet="MovieProducers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieTags__Movie__74794A92" Association="Self.FK__MovieTags__Movie__74794A92">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieTags" EntitySet="MovieTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieTags__TagId__756D6ECB" Association="Self.FK__MovieTags__TagId__756D6ECB">
+      <End Role="Tags" EntitySet="Tags" />
+      <End Role="MovieTags" EntitySet="MovieTags" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieWrit__Movie__76619304" Association="Self.FK__MovieWrit__Movie__76619304">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="MovieWriters" EntitySet="MovieWriters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieWrit__Write__7755B73D" Association="Self.FK__MovieWrit__Write__7755B73D">
+      <End Role="Writers" EntitySet="Writers" />
+      <End Role="MovieWriters" EntitySet="MovieWriters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recommend__FromU__7849DB76" Association="Self.FK__Recommend__FromU__7849DB76">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Recommendations" EntitySet="Recommendations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recommend__Movie__793DFFAF" Association="Self.FK__Recommend__Movie__793DFFAF">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="Recommendations" EntitySet="Recommendations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recommend__ToUse__7A3223E8" Association="Self.FK__Recommend__ToUse__7A3223E8">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Recommendations" EntitySet="Recommendations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__UserStatu__7B264821" Association="Self.FK__Users__UserStatu__7B264821">
+      <End Role="UserStatus" EntitySet="UserStatus" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

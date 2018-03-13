@@ -1,0 +1,13 @@
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\MovieNightr.Data.dll.config
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\MovieNightr.Data.dll
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\MovieNightr.Data.pdb
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\EntityFramework.dll
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\EntityFramework.SqlServer.dll
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\Newtonsoft.Json.dll
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\EntityFramework.xml
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\EntityFramework.SqlServer.xml
+Z:\Projects\MovieNightr\API\MovieNightr.Data\bin\Debug\Newtonsoft.Json.xml
+Z:\Projects\MovieNightr\API\MovieNightr.Data\obj\Debug\MovieNightr.Data.csprojResolveAssemblyReference.cache
+Z:\Projects\MovieNightr\API\MovieNightr.Data\obj\Debug\MovieNightr.Data.csproj.CoreCompileInputs.cache
+Z:\Projects\MovieNightr\API\MovieNightr.Data\obj\Debug\MovieNightr.Data.dll
+Z:\Projects\MovieNightr\API\MovieNightr.Data\obj\Debug\MovieNightr.Data.pdb

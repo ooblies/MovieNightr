@@ -1,0 +1,13 @@
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\bin\Debug\net45\MovieNightr.IMDB.exe.config
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\bin\Debug\net45\MovieNightr.IMDB.exe
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\bin\Debug\net45\MovieNightr.IMDB.pdb
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\bin\Debug\net45\AWSSDK.Core.dll
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\bin\Debug\net45\AWSSDK.EC2.dll
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\bin\Debug\net45\AWSSDK.S3.dll
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\bin\Debug\net45\AWSSDK.SimpleDB.dll
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\obj\Debug\net45\MovieNightr.IMDB.csprojResolveAssemblyReference.cache
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\obj\Debug\net45\MovieNightr.IMDB.csproj.CoreCompileInputs.cache
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\obj\Debug\net45\MovieNightr.IMDB.AssemblyInfoInputs.cache
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\obj\Debug\net45\MovieNightr.IMDB.AssemblyInfo.cs
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\obj\Debug\net45\MovieNightr.IMDB.exe
+Z:\Projects\MovieNightr\API\MovieNightr.IMDB\obj\Debug\net45\MovieNightr.IMDB.pdb

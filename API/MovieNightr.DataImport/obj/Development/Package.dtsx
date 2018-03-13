@@ -1,0 +1,911 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/29/2017 3:52:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="OOBDESK"
+  DTS:CreatorName="OobDesk\ooblies"
+  DTS:DTSID="{40979D4A-83F1-46BA-A876-52ED8E5F3EA6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.98"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{ED86774F-99A0-404A-BDD4-BB1CD19249B7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MovieNightr]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{42DBCD2D-481A-4DBC-BE87-E9644D3170B3}"
+      DTS:ObjectName="MovieNightr">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=movienightr.cjas4nl3rr9x.us-east-1.rds.amazonaws.com,1433;User ID=MovieNightrDev;Initial Catalog=MovieNightr;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA53n/hRReMk+9sC0El+/P+wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABsLLTfdKrOu9cq/xipi6n/YU17QrFVRkLtQV8ds1kBIAAAAAAOgAAAAAIAACAAAAD71Z6D0voFY//eAWm4N2ckF/lSw6sBAHdhS+29N9NXjEAAAACB1GGE4OKJywifAFi4BsQYeIJ1jW51elzKqIVGtP/NZ4Ni6NTv+Du4b3Sbm2Um9b4vUuEihre331BDGfpghcLtQAAAAMqLV8vJVFxI33mZ9b+htugyiwcpvFX8PqBSg0fbS5uSTF9JhGeTXetYiOsxYOG7GMkEgpKQFGbEbjM+g8A0Xvk</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Titles]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{27EE8470-DD6C-43D1-A7A3-16C88D869F85}"
+      DTS:ObjectName="Titles">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="Z:\Projects\MovieNightr\IMDB Data\title.basics.tsv\data.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="tconst"
+              DTS:DTSID="{29F37F9F-8D49-414A-BD6F-8A93939DD1B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="titleType"
+              DTS:DTSID="{C14D375C-B622-4BB6-8FBC-70AC56E471F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="primaryTitle"
+              DTS:DTSID="{0B5F859B-6CE8-4D9A-AD24-B197C56B28D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="originalTitle"
+              DTS:DTSID="{5A5CAA34-86AE-4628-8FC8-8A7E6D21C358}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="isAdult"
+              DTS:DTSID="{4034385A-7B87-4BF6-923A-CA5E6BBE5D85}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="startYear"
+              DTS:DTSID="{3C3D279F-1A5E-417F-B0E0-9F0EA37EE4D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="endYear"
+              DTS:DTSID="{BF7EC0B9-BDC5-4C7D-8AD0-5B08F628EE3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="runtimeMinutes"
+              DTS:DTSID="{7D675681-6302-42B9-8A71-E5134FB9C5D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="4000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="genres"
+              DTS:DTSID="{74210ACF-72B7-4F34-AA50-7110978520EC}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import Movies"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8CFD712E-9561-4D76-A1BB-FF37A6C006B0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Movies">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Import Movies\Delete Movies"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E89B96C6-86F5-44C5-9B48-AE34B7D4D562}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete Movies"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{42DBCD2D-481A-4DBC-BE87-E9644D3170B3}"
+              SQLTask:SqlStatementSource="DELETE FROM imdb.Movies" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Import Movies\Import Movies"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{7DFA50FC-4869-46F5-92FC-BB5896C491AD}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Import Movies"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Import Movies\Import Movies\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Import Movies\Import Movies\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Import Movies\Import Movies\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Import Movies\Import Movies\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Import Movies\Import Movies\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Import Movies\Import Movies\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import Movies\Import Movies\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import Movies\Import Movies\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Import Movies\Import Movies\imdbMovies"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="imdbMovies"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[imdb].[Movies]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Import Movies\Import Movies\imdbMovies.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MovieNightr]"
+                      connectionManagerRefId="Package.ConnectionManagers[MovieNightr]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[tconst]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="tconst"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[tconst]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[tconst]" />
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[titleType]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="titleType"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[titleType]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[titleType]" />
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[primaryTitle]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="primaryTitle"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[primaryTitle]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[primaryTitle]" />
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[originalTitle]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="originalTitle"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[originalTitle]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[originalTitle]" />
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[isAdult]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="isAdult"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[isAdult]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[isAdult]" />
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[startYear]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="startYear"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[startYear]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[startYear]" />
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[endYear]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="endYear"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[endYear]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[endYear]" />
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[runtimeMinutes]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="runtimeMinutes"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[runtimeMinutes]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[runtimeMinutes]" />
+                        <inputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].Columns[genres]"
+                          cachedDataType="wstr"
+                          cachedLength="4000"
+                          cachedName="genres"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[genres]"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[genres]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[tconst]"
+                          dataType="nText"
+                          name="tconst" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[titleType]"
+                          dataType="nText"
+                          name="titleType" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[primaryTitle]"
+                          dataType="nText"
+                          name="primaryTitle" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[originalTitle]"
+                          dataType="nText"
+                          name="originalTitle" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[isAdult]"
+                          dataType="nText"
+                          name="isAdult" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[startYear]"
+                          dataType="nText"
+                          name="startYear" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[endYear]"
+                          dataType="nText"
+                          name="endYear" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[runtimeMinutes]"
+                          dataType="nText"
+                          name="runtimeMinutes" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[genres]"
+                          dataType="nText"
+                          name="genres" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                          dataType="dbTimeStamp"
+                          name="CreatedOn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Import Movies\Import Movies\imdbMovies.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import Movies\Import Movies\imdbMovies.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\imdbMovies.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import Movies\Import Movies\imdbMovies.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Import Movies\Import Movies\Titles"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Titles"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Import Movies\Import Movies\Titles.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Titles]"
+                      connectionManagerRefId="Package.ConnectionManagers[Titles]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[tconst]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[tconst]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[tconst]"
+                          name="tconst"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[titleType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[titleType]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[titleType]"
+                          name="titleType"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[primaryTitle]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[primaryTitle]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[primaryTitle]"
+                          name="primaryTitle"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[originalTitle]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[originalTitle]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[originalTitle]"
+                          name="originalTitle"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[isAdult]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[isAdult]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[isAdult]"
+                          name="isAdult"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[startYear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[startYear]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[startYear]"
+                          name="startYear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[endYear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[endYear]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[endYear]"
+                          name="endYear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[runtimeMinutes]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[runtimeMinutes]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[runtimeMinutes]"
+                          name="runtimeMinutes"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[genres]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[genres]"
+                          length="4000"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].Columns[genres]"
+                          name="genres"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[tconst]"
+                          dataType="wstr"
+                          length="4000"
+                          name="tconst" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[titleType]"
+                          dataType="wstr"
+                          length="4000"
+                          name="titleType" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[primaryTitle]"
+                          dataType="wstr"
+                          length="4000"
+                          name="primaryTitle" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[originalTitle]"
+                          dataType="wstr"
+                          length="4000"
+                          name="originalTitle" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[isAdult]"
+                          dataType="wstr"
+                          length="4000"
+                          name="isAdult" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[startYear]"
+                          dataType="wstr"
+                          length="4000"
+                          name="startYear" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[endYear]"
+                          dataType="wstr"
+                          length="4000"
+                          name="endYear" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[runtimeMinutes]"
+                          dataType="wstr"
+                          length="4000"
+                          name="runtimeMinutes" />
+                        <externalMetadataColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output].ExternalColumns[genres]"
+                          dataType="wstr"
+                          length="4000"
+                          name="genres" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Import Movies\Import Movies.Paths[Conditional Split Default Output]"
+                  endId="Package\Import Movies\Import Movies\imdbMovies.Inputs[OLE DB Destination Input]"
+                  name="Conditional Split Default Output"
+                  startId="Package\Import Movies\Import Movies\Conditional Split.Outputs[Conditional Split Default Output]" />
+                <path
+                  refId="Package\Import Movies\Import Movies.Paths[Flat File Source Output]"
+                  endId="Package\Import Movies\Import Movies\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Import Movies\Import Movies\Titles.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Import Movies.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E7BA9363-300D-4D51-9D03-EC4D004BC105}"
+          DTS:From="Package\Import Movies\Delete Movies"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Import Movies\Import Movies" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Import Movies\Import Movies"
+          TopLeft="26,95" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Import Movies\Delete Movies"
+          TopLeft="25,28" />
+        <EdgeLayout
+          Id="Package\Import Movies.PrecedenceConstraints[Constraint]"
+          TopLeft="99.75,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,238"
+          Size="205,281"
+          Id="Package\Import Movies"
+          TopLeft="456,220" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import Movies\Import Movies">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="105,42"
+          Id="Package\Import Movies\Import Movies\Titles"
+          TopLeft="233,87" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Import Movies\Import Movies\Conditional Split"
+          TopLeft="471,79" />
+        <EdgeLayout
+          Id="Package\Import Movies\Import Movies.Paths[Flat File Source Output]"
+          TopLeft="338,108">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133,-8"
+              Start="0,0"
+              End="125.5,-8">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="62.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.5,0"
+                    Point2="66.5,0"
+                    Point3="66.5,-4" />
+                  <mssgle:LineSegment
+                    End="66.5,-4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.5,-4"
+                    Point2="66.5,-8"
+                    Point3="70.5,-8" />
+                  <mssgle:LineSegment
+                    End="125.5,-8" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Import Movies\Import Movies\imdbMovies"
+          TopLeft="729.5,77.5" />
+        <EdgeLayout
+          Id="Package\Import Movies\Import Movies.Paths[Conditional Split Default Output]"
+          TopLeft="630,99.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="99.5,0"
+              Start="0,0"
+              End="92,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="92,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="38,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Movies\Import Movies\imdbMovies">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
